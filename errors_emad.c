@@ -42,3 +42,56 @@ switch (error_code)
 free_nodes();
 exit(EXIT_FAILURE);
 }
+
+
+
+
+/**
+ * err - function that Print the error messages with their error code
+ * @error_code: error codes is integer type are the following:
+ * (1) => first error is user does not give any file
+ * or more than one file to the program
+ * (2) => 2nd error the file provided is not a file can be opened or read
+ * (3) => third error is the file provided contains an invalid instruction.
+ * (4) => fourth error  when the program is unable to malloc more memory.
+ * (5) => 5th error is when the parameter passed
+ * to the instruction "push" is not an integer
+ * (6) => sixth error when the stack it empty for pint
+ * (7) => 7th error when the stack it empty for pop.
+ * (8) => eighth error  when stack is too short to operate
+ */
+
+
+void err(int error_code, ...)
+{
+	va_list ag;
+	char *opp;
+	int l_num;
+
+	va_start(ag, error_code);
+	switch (error_code)
+	{
+		case 1:
+			fprintf(stderr, "USAGE: monty file\n");
+			break;
+		case 2:
+			fprintf(stderr, "Error: Can't open file %s\n",
+				va_arg(ag, char *));
+			break;
+		case 3:
+			l_num = va_arg(ag, int);
+			opp = va_arg(ag, char *);
+			fprintf(stderr, "L%d: unknown instruction %s\n", l_num, opp);
+			break;
+		case 4:
+			fprintf(stderr, "Error: malloc failed\n");
+			break;
+		case 5:
+			fprintf(stderr, "L%d: usage: push integer\n", va_arg(ag, int));
+			break;
+		default:
+			break;
+	}
+	free_nodes();
+	exit(EXIT_FAILURE);
+}
