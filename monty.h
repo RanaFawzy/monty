@@ -55,5 +55,11 @@ int parse_line(char *buffer, int line_number, int format);
 void read_file(FILE *);
 int len_chars(FILE *);
 void find_func(char *, char *, int, int);
+/*Math operations with nodes*/
+void add_nodes(stack_t **, unsigned int);
+void sub_nodes(stack_t **, unsigned int);
+void div_nodes(stack_t **, unsigned int);
+void mul_nodes(stack_t **, unsigned int);
+void mod_nodes(stack_t **, unsigned int);
 
 #endif
