@@ -19,3 +19,22 @@ for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
 }
 free(buffer);
 }
+
+
+/**
+ * open_file - a function use to open a file
+ * @file_name:  namepath file
+ * Return: nothing
+ */
+
+
+void open_file(char *file_name)
+{
+FILE *fd = fopen(file_name, "r");
+
+if (file_name == NULL || fd == NULL)
+	err(2, file_name);
+
+read_file(fd);
+fclose(fd);
+}
