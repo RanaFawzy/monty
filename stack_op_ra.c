@@ -19,3 +19,20 @@ sum = (*stack)->n % (*stack)->prev->n;
 free((*stack)->prev);
 (*stack)->prev = NULL;
 }
+/**
+ * mul_nodes - this is to add top two elements of stacks.
+ * @line_number: this is int type represent line number of opcodee.
+ * @stack: this is Pointer that pointing to top node of stacks.
+ *
+ */
+void mul_nodes(stack_t **stack, unsigned int line_number)
+{
+int sum;
+if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+more_err(8, line_number, "mul");
+(*stack) = (*stack)->next;
+sum = (*stack)->n * (*stack)->prev->n;
+(*stack)->n = sum;
+free((*stack)->prev);
+(*stack)->prev = NULL;
+}
