@@ -48,3 +48,17 @@ void swap_nodes(stack_t **stack, unsigned int line_number)
 	tmp->prev = NULL;
 	*stack = tmp;
 }
+
+
+
+/**
+ * nop - a function used to Do nothing.
+ * @stack: pntr points to top node of the stack.
+ * @line_number: an integer type and  represent a line number of opcode.
+ */
+
+void nop(stack_t **stack, unsigned int line_number)
+{
+(void)stack;
+(void)line_number;
+}
