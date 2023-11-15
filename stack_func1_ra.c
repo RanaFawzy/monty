@@ -19,3 +19,15 @@ printf("%d\n", tmp->n);
 tmp = tmp->next;
 }
 }
+/**
+ * print_top - this function is to Print top node of stacks.
+ * @line_number: this is int type & representing line numberr of opcodee.
+ * @stack: this is pointer to that pointing to top node of stacks.
+ *
+ */
+void print_top(stack_t **stack, unsigned int line_number)
+{
+if (stack == NULL || *stack == NULL)
+more_err(6, line_number);
+printf("%d\n", (*stack)->n);
+}
