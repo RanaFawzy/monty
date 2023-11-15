@@ -73,3 +73,21 @@ void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
 }
 stack_t *head = NULL;
 
+/**
+ * main -  entry point function
+ * @argc: argume count
+ * @argv: a list of arguments
+ * Return: 0 (success)
+ */
+
+int main(int argc, char *argv[])
+{
+	if (argc != 2)
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+	open_file(argv[1]);
+	free_nodes();
+	return (0);
+}
