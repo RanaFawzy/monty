@@ -71,7 +71,7 @@ void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
 	(*new_node)->prev = tmp;
 
 }
-stack_t *head = NULL;
+
 
 /**
  * main -  entry point function
