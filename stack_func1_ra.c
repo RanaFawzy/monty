@@ -31,3 +31,20 @@ if (stack == NULL || *stack == NULL)
 more_err(6, line_number);
 printf("%d\n", (*stack)->n);
 }
+/**
+ * pop_top - this function is to add node to stacks.
+ * @line_number: this is int type Interger representing line number of opcodee.
+ * @stack: this is Pointer that pointing to top node of stacks.
+ *
+ */
+void pop_top(stack_t **stack, unsigned int line_number)
+{
+stack_t *tmp;
+if (stack == NULL || *stack == NULL)
+more_err(7, line_number);
+tmp = *stack;
+*stack = tmp->next;
+if (*stack != NULL)
+(*stack)->prev = NULL;
+free(tmp);
+}
