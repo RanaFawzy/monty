@@ -23,3 +23,28 @@ sum = (*stack)->n - (*stack)->prev->n;
 free((*stack)->prev);
 (*stack)->prev = NULL;
 }
+
+
+
+/**
+ * swap_nodes - a funct use to swap the top 2 element of the stack
+ * @stack: pntr points to top node of the stack
+ * @line_number: an integer type and  represen a line number of opcode.
+ */
+
+
+void swap_nodes(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		more_err(8, line_number, "swap");
+	tmp = (*stack)->next;
+	(*stack)->next = tmp->next;
+	if (tmp->next != NULL)
+		tmp->next->prev = *stack;
+	tmp->next = *stack;
+	(*stack)->prev = tmp;
+	tmp->prev = NULL;
+	*stack = tmp;
+}
